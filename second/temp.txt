@@ -1,0 +1,9 @@
+/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp3_input
+/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input
+/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp5_input
+/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp2_input
+/sys/devices/pci0000:00/0000:00:1d.0/0000:01:00.0/nvme/nvme0/hwmon2/temp3_input
+/sys/devices/pci0000:00/0000:00:1d.0/0000:01:00.0/nvme/nvme0/hwmon2/temp1_input
+/sys/devices/pci0000:00/0000:00:1d.0/0000:01:00.0/nvme/nvme0/hwmon2/temp2_input
+/sys/devices/virtual/thermal/thermal_zone8/hwmon3/temp1_input
