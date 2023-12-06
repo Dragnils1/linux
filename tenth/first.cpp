@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+
 class File {
 public:
     // Конструктор открывает файл

@@ -1,2 +1,1 @@
-git clone https://github.com/santazhang/unistdx.git
-cd unistdx
+sudo apt install meson zlib

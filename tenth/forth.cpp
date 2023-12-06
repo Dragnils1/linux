@@ -1,5 +1,10 @@
 #include <iostream>
-#include <utility>
+#include <fstream>
+#include <cstring>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 class File {
 public:
