@@ -41,5 +41,5 @@ EOF
 
 
 # Компиляция и вывод препроцессированного кода
-g++ -E conditional_compilation.cpp
+# g++ -E conditional_compilation.cpp
 # g++ -E -DUSE_GPU -DUSE_FLOAT your_file.cpp
