@@ -17,7 +17,7 @@ fi
 
 
 # Добавляем макрос в конец файла
-echo 'let @c = exists("@"."c") ? @c : "I\"\<Esc>A\"\<Esc>j0q"' >> ~/.vimrc
+echo 'let @c="I\"\<Esc>A\"\<Esc>j0q"' >> ~/.vimrc
 
 # Открываем ~/.vimrc для редактирования
 # vim $vimrc_path
