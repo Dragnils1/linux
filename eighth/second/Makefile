@@ -1,15 +1,32 @@
-CC = g++
-CFLAGS = -Wall -std=c++11
-LIBS = $(shell pkg-config --libs zlib)
-INCLUDES = $(shell pkg-config --cflags zlib)
+# Имя вашего исполняемого файла
+TARGET = main
 
-all: my_program
+# Исходные файлы
+SOURCES = main.cc
 
-my_program: main.o
-	$(CC) $(CFLAGS) $(LIBS) -o $@ $^
+# Флаги компилятора
+CXXFLAGS = -Wall $(shell pkg-config --cflags zlib)
 
-main.o: main.cc main.hh
-	$(CC) $(CFLAGS) $(INCLUDES) -c $<
+# Флаги линковщика
+LDFLAGS = $(shell pkg-config --libs zlib)
 
+# Объектные файлы
+OBJECTS = $(SOURCES:.cc=.o)
+
+# Правило по умолчанию
+all: $(TARGET)
+
+# Правило для сборки исполняемого файла
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+
+# Правило для объектных файлов
+%.o: %.cc
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Правило для очистки проекта
 clean:
-	rm -f my_program main.o
+	rm -f $(TARGET) $(OBJECTS)
+
+# Дополнительные зависимости
+main.o: main.hh

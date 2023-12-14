@@ -11,7 +11,7 @@ class File {
 public:
     // Конструктор открывает файл
     File(const char* filename, int flags) {
-        fd_ = open(filename, flags, 0666);
+        fd_ = open(filename, flags, 0777);
         check(fd_ != -1, "Failed to open file");
     }
 
@@ -36,6 +36,11 @@ public:
         return bytesRead;
     }
 
+     // Метод для получения файлового дескриптора
+    int get_fd() const {
+        return fd_;
+    }
+
 private:
     int fd_;
 
@@ -55,10 +60,16 @@ int main() {
     const char* message = "Hello, File!";
     file.write(message, strlen(message));
 
-    char buffer[50];
-    file.read(buffer, sizeof(buffer));
+    // Переместим указатель в начало файла перед чтением
+    lseek(file.get_fd(), 0, SEEK_SET);
+
+    char buffer[50] = {0}; // Инициализируем буфер нулями, чтобы предотвратить вывод мусора
+    ssize_t bytes_read = file.read(buffer, sizeof(buffer)-1); // Читаем из файла
+    buffer[bytes_read] = '\0'; // Убедимся, что строка терминируется нулём
 
     std::cout << "Read from file: " << buffer << std::endl;
 
     return 0;
 }
+
+

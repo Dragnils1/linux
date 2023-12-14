@@ -13,5 +13,14 @@ my_func() {
     "$@" > "$output_file" 2>&1
 }
 
+# Вызов функции с аргументами, если они предоставлены
+if [ "$#" -gt 0 ]; then
+    my_func "$@"
+else
+    echo "Usage: $0 <output_file> <command> [args...]"
+fi
+
+# ./myscript.sh output.txt your_command arg1 arg2
+
 # Пример вызова функции
-my_func ./output.log ls -l
+# my_func ./output.log ls -l

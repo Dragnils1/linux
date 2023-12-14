@@ -1,6 +1,6 @@
 # Компилируйте эту программу, например, с использованием gcc:
 
-`gcc getpid_example.c -o getpid_example`
+`gcc getpid_example.cc -o getpid_example`
 
 ## Затем запустите скомпилированный исполняемый файл:
 
